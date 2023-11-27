@@ -1,5 +1,10 @@
 import app from './app'
+import { startConection } from './database';
 
-app.listen(3000, () => {
-    console.log('Server en el puerto: ', 3000)
-})
+async function main() {
+    startConection();
+    await app.listen(app.get('port'));
+    console.log('Server en el puerto: ', app.get('port'))
+}
+
+main()
