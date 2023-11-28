@@ -49,7 +49,7 @@ export async function updateFotos(req: Request, res: Response): Promise<Response
     const updateFoto = await Fotos.findByIdAndUpdate(id, {
         titulo,
         descripcion
-    });
+    }, {new: true});
     return res.json({
         message: 'Foto actualizada',
         updateFoto

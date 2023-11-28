@@ -52,7 +52,7 @@ async function updateFotos(req, res) {
     const updateFoto = await Fotos_1.default.findByIdAndUpdate(id, {
         titulo,
         descripcion
-    });
+    }, { new: true });
     return res.json({
         message: 'Foto actualizada',
         updateFoto
