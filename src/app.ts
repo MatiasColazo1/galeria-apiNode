@@ -3,12 +3,20 @@ import morgan from 'morgan';
 import path from 'path'
 import cors from 'cors';
 
+
 const app = express();
 
 import indexRoutes from './routes/index'
 
 // settings
 app.set('port', process.env.PORT || 3000)
+
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200, // Algunos navegadores antiguos (IE11) pueden requerir esto
+};
+
+app.use(cors(corsOptions));
 
 // middlewars
 app.use(morgan('dev'));

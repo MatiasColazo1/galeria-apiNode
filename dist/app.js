@@ -11,6 +11,11 @@ const app = (0, express_1.default)();
 const index_1 = __importDefault(require("./routes/index"));
 // settings
 app.set('port', process.env.PORT || 3000);
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200, // Algunos navegadores antiguos (IE11) pueden requerir esto
+};
+app.use((0, cors_1.default)(corsOptions));
 // middlewars
 app.use((0, morgan_1.default)('dev'));
 app.use(express_1.default.json());
